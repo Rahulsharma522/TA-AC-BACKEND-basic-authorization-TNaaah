@@ -1,0 +1,75 @@
+<% include partials/header.ejs %>
+
+<main class="w-full">
+  <% if(error){%>
+  <p><%= error %></p>
+  <%} %>
+  <section class="w-screen">
+    <div class="m-10">
+      <h2 class="text-green-500 text-2xl font-bold">
+        <%= eacharticle.title %>
+      </h2>
+      <h3 class="text-gray-700 text-lg font-bold">
+        <%= eacharticle.description %>
+      </h3>
+      <h2 class="font-bold text-gray-700 text-xl m-5">
+        <%= eacharticle.likes ? eacharticle.likes : 0 %>
+      </h2>
+
+      <a href="/articles/<%=eacharticle.id%>/article/likes ">
+        <button class="border-2 py-1 px-6 rounded-md bg-green-700 text-white">
+          like
+        </button>
+      </a>
+
+      <a href="/articles/<%=eacharticle.id%>/article/dislikes ">
+        <button class="border-2 py-1 px-6 rounded-md bg-red-700 text-white">
+          dislike
+        </button>
+      </a>
+
+      <div class="mt-6">
+        <a href="/articles/<%=eacharticle.id%>/article/edit ">
+          <button class="border-2 py-1 px-6 rounded-md bg-green-700 text-white">
+            Edit
+          </button>
+        </a>
+
+        <a href="/articles/<%= eacharticle.id%>/article/delete">
+          <button class="border-2 py-1 px-6 rounded-md bg-red-700 text-white">
+            Delete
+          </button>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- comments  -->
+
+  <section class="w-screen">
+    <div class="m-10">
+      <h2>Comments . . .</h2>
+      <form action="/article/<%=eacharticle.id%>/comments/new" method="POST">
+        <textarea
+          class="border-2 p-4"
+          placeholder="leave your Comment . . "
+          name="content"
+          id=""
+          cols="30"
+          rows="5"
+        ></textarea>
+        <input
+          class="block py-1 px-4 bg-blue-600 text-white rounded-md mt-5"
+          type="submit"
+          value="Add Comment"
+        />
+      </form>
+
+      <p class="mt-10 underline">All Comments</p>
+
+      <% eacharticle.comments.forEach((element) => { %>
+      <h3 class="font-bold text-lg mt-5"><%= element.content %></h3>
+      <% }) %>
+    </div>
+  </section>
+</main>

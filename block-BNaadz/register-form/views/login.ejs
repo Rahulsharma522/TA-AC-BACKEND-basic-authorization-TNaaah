@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logn in</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header class="border-2 py-8 px-6">
+      <div class="flex justify-between items-center">
+        <a
+          class="text-xl border-2 py-1 px-4 rounded-md bg-green-400 text-white"
+          href="/"
+          >Home</a
+        >
+        <a
+          class="text-xl border-2 py-1 px-4 rounded-md bg-green-400 text-white"
+          href="/users/register/new"
+          >Register</a
+        >
+      </div>
+    </header>
+
+    <main class="h-screen">
+      <section class="flex justify-center items-center h-4/6">
+        <form action="/users/login" method="POST" class="w-4/12 border-2 p-8">
+          <h2 class="text-xl">Login with your Details</h2>
+          <%if (error) {%>
+          <p class="text-red-500"><%= error %></p>
+          <%}%>
+          <input
+            class="
+              border-2
+              w-full
+              mt-5
+              py-2
+              px-2
+              rounded-md
+              focus:outline-none focus:border-green-400
+            "
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+          />
+          <input
+            class="
+              border-2
+              w-full
+              mt-5
+              py-2
+              px-2
+              rounded-md
+              focus:outline-none focus:border-green-400
+            "
+            type="password"
+            name="password"
+            placeholder="Enter your password"
+          />
+          <input
+            class="
+              border-2
+              w-full
+              mt-5
+              py-2
+              px-2
+              rounded-md
+              focus:outline-none focus:border-green-400
+            "
+            type="submit"
+          />
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

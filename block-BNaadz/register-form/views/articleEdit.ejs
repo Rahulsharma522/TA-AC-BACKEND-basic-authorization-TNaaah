@@ -1,0 +1,55 @@
+<% include partials/header.ejs %>
+<main class="h-screen">
+  <section class="flex justify-center items-center h-4/6">
+    <form
+      action="/articles/<%=editarticle.id%>/article/edit "
+      method="POST"
+      class="w-4/12 border-2 p-8"
+    >
+      <h2 class="text-xl">Add article</h2>
+      <input
+        class="
+          border-2
+          w-full
+          mt-5
+          py-2
+          px-2
+          rounded-md
+          focus:outline-none focus:border-green-400
+        "
+        type="text"
+        name="title"
+        value="<%= editarticle.title  %> "
+      />
+      <textarea
+        class="
+          border-2
+          w-full
+          mt-5
+          py-2
+          px-2
+          rounded-md
+          focus:outline-none focus:border-green-400
+        "
+        name="description"
+        id=""
+        cols="30"
+        rows="5"
+      >
+<%= editarticle.description  %> </textarea
+      >
+      <input
+        class="
+          border-2
+          w-full
+          mt-5
+          py-2
+          px-2
+          rounded-md
+          focus:outline-none focus:border-green-400
+        "
+        type="submit"
+      />
+    </form>
+  </section>
+</main>
